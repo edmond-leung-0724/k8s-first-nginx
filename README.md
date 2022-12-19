@@ -15,20 +15,27 @@
   
   kubectl exec -it nginx-pod -- /bin/sh
   
-  kubectl get svc
+  cd /usr/share/nginx/html
   
-  kubectl expose pod nginx-pod --type=NodePort --port=80
+  echo "testing pages" > test.html
+  
+  exit
+  
+    kubectl expose pod nginx-pod --type=NodePort --port=80
   
   kubectl get svc
   
   kubectl describe svc nginx-pod
   
-   
-  kubectl delete svc nginx-pod
+  Open the browser and check whehter can access the test page by master-node-ip/worker-node-ip
   
-  
+  http://master-node-ip:30547/test.html or http://worker-node-ip:30547/test.html
 
   kubectl delete pod nginx-pod
   
+  kubectl delete svc nginx-pod
+  
   kubectl get pod -A
+  
+  kubectl get svc -A
   
