@@ -3,8 +3,11 @@
   kubectl create -f nginx-pod.yaml
   
   kubectl get pod -A
+  
   kubectl get pod -o wide
-  147  kubectl get pod nginx-pod -o yaml
+  
+  kubectl get pod nginx-pod -o yaml
+  
   148  kubectl describe pod nginx-pod
   149  ls
   150  cat nginx-pod.yaml
