@@ -1,9 +1,9 @@
 # k8s-first-nginx
 
-  143  kubectl create -f nginx-pod.yaml
-  144  kubectl get pod
-  145  kubectl get pod -A
-  146  kubectl get pod -o wide
+  kubectl create -f nginx-pod.yaml
+  
+  kubectl get pod -A
+  kubectl get pod -o wide
   147  kubectl get pod nginx-pod -o yaml
   148  kubectl describe pod nginx-pod
   149  ls
