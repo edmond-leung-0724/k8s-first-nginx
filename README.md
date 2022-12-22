@@ -14,7 +14,7 @@ kubectl get pod nginx-pod -o yaml
   
 kubectl describe pod nginx-pod
   
-3) Connect to the pod
+3) To get inside the pod
 
 kubectl get pod -A
 
