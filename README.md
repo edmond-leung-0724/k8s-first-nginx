@@ -14,7 +14,7 @@ kubectl get pod nginx-pod -o yaml
   
 kubectl describe pod nginx-pod
   
-3) To get inside the pod
+3) Connect to the pod
 
 kubectl get pod -A
 
@@ -26,7 +26,7 @@ echo "testing pages" > test.html
   
 exit
 
-4) Create NodePort service service
+4) Expose Pod by create NodePort service
 
 kubectl expose pod nginx-pod --type=NodePort --port=80
 
