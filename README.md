@@ -5,40 +5,50 @@
 kubectl create -f nginx-pod.yaml
  
 2) Check Pod status
+
 kubectl get pod -A
   
-  kubectl get pod -o wide
+kubectl get pod -o wide
   
-  kubectl get pod nginx-pod -o yaml
+kubectl get pod nginx-pod -o yaml
   
-  kubectl describe pod nginx-pod
+kubectl describe pod nginx-pod
   
-  
-  kubectl get pod -A
-  
-  kubectl exec -it nginx-pod -- /bin/sh
-  
-  cd /usr/share/nginx/html
-  
-  echo "testing pages" > test.html
-  
-  exit
-  
-    kubectl expose pod nginx-pod --type=NodePort --port=80
-  
-  kubectl get svc
-  
-  kubectl describe svc nginx-pod
-  
-  Open the browser and check whehter can access the test page by master-node-ip/worker-node-ip
-  
-  http://master-node-ip:30547/test.html or http://worker-node-ip:30547/test.html
+3) Connect to the pod
 
-  kubectl delete pod nginx-pod
+kubectl get pod -A
+
+kubectl exec -it nginx-pod -- /bin/sh
   
-  kubectl delete svc nginx-pod
+cd /usr/share/nginx/html
   
-  kubectl get pod -A
+echo "testing pages" > test.html
   
-  kubectl get svc -A
+exit
+
+4) Create NodePort service service
+
+kubectl expose pod nginx-pod --type=NodePort --port=80
+
+5) Check the port number of the Node Port (for example 30547)
+
+kubectl get svc
+  
+kubectl describe svc nginx-pod
+  
+6) Open the browser and check whehter can access the test page by master-node-ip/worker-node-ip
+  
+http://master-node-ip:30547/test.html or http://worker-node-ip:30547/test.html
+
+curl http://master-node-ip:30547/test.html or curl http://worker-node-ip:30547/test.html 
+
+7) Remote the service and Pod
+
+kubectl delete pod nginx-pod
+  
+kubectl delete svc nginx-pod
+  
+kubectl get pod -A
+  
+kubectl get svc -A
   
