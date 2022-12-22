@@ -1,8 +1,11 @@
 # k8s-first-nginx
 
-  kubectl create -f nginx-pod.yaml
-  
-  kubectl get pod -A
+1) Create Nginx Pod
+
+kubectl create -f nginx-pod.yaml
+ 
+2) Check Pod status
+kubectl get pod -A
   
   kubectl get pod -o wide
   
