@@ -2,7 +2,7 @@
 
 1) Create Nginx Pod
 
-kubectl create -f nginx-pod.yaml
+ kubectl create -f nginx-pod.yaml
  
 2) Check Pod status
 
